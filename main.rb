@@ -10,5 +10,6 @@ distances = DistanceArray.new(dna)
 
 index_of_center_string = find_center_string(distances)
 
+puts index_of_center_string
 puts dna.strand(index_of_center_string)
 

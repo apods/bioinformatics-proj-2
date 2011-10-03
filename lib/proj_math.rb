@@ -33,7 +33,7 @@ def find_center_string(o_distances)
   
   for i in 0 .. o_distances.rows - 1
     
-    
+    distance_sum = 0
     
     
     for j in 0 .. o_distances.cols - 1
@@ -47,6 +47,7 @@ def find_center_string(o_distances)
     if distance_sum < best_sum[0]
       best_sum[0] = distance_sum
       best_sum[1] = i
+      puts "modified"
     end
     
     
