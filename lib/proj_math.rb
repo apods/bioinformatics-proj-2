@@ -32,28 +32,15 @@ def find_center_string(o_distances)
   best_sum = Array.[](9999999999999999999999999999, 0)
   
   for i in 0 .. o_distances.rows - 1
-    
     distance_sum = 0
-    
-    
     for j in 0 .. o_distances.cols - 1
-      
       distance_sum += o_distances.distance(i, j) unless i == j
-      
-      
-      
     end
-    
     if distance_sum < best_sum[0]
       best_sum[0] = distance_sum
       best_sum[1] = i
-      puts "modified"
     end
-    
-    
   end
-  
-  
   
   return best_sum[1]
 end

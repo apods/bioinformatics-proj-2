@@ -10,7 +10,7 @@ class DistanceArray
     for i in 0 .. @dna.num_strands - 1
       for j in 0 .. @dna.num_strands - 1
         if i != j
-          @distances[j][i] = @distances[i][j] = score(@dna.strand(i), @dna.strand(j))
+          @distances[j][i] = @distances[i][j] = score(@dna.strand(i), @dna.strand(j)) #change score to edit distance
         else
           @distances[i][j] = nil
         end
