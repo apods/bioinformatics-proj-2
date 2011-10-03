@@ -28,20 +28,49 @@ def score(u, v)
 end
 
 def find_center_string(o_distances)
-  strands = dna.all_strands
-  min_strand = Array.[](strands[0], 0)
+  distance_sum = 0
+  best_sum = Array.[](9999999999999999999999999999, 0)
   
-  for i in 0 .. strands.size - 1
-    for j in 0 .. strands.size - 1
+  for i in 0 .. o_distances.rows - 1
+    
+    
+    
+    
+    for j in 0 .. o_distances.cols - 1
       
-      if i != j
-        min_strand = strands[j] unless score
-      end
+      distance_sum += o_distances.distance(i, j) unless i == j
+      
+      
       
     end
+    
+    if distance_sum < best_sum[0]
+      best_sum[0] = distance_sum
+      best_sum[1] = i
+    end
+    
+    
   end
   
   
   
-  return min_strand
+  return best_sum[1]
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

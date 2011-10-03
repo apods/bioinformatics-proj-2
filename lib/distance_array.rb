@@ -1,5 +1,4 @@
 class DistanceArray
-  attr_reader :distances
   
   def initialize(dna)
     @dna = dna
@@ -17,6 +16,18 @@ class DistanceArray
         end
       end
     end
+  end
+  
+  def distance(i, j)
+    @distances[i][j]
+  end
+  
+  def rows
+    return @distances.size
+  end
+  
+  def cols
+    return @distances.size
   end
   
 end
