@@ -1,4 +1,4 @@
-def total_score(dna)
+def total_score(o_dna)
   score = 0
   num_strands = dna.num_strands
   strands = dna.all_strands
@@ -25,4 +25,23 @@ def score(u, v)
   end
   
   return score
+end
+
+def find_center_string(o_distances)
+  strands = dna.all_strands
+  min_strand = Array.[](strands[0], 0)
+  
+  for i in 0 .. strands.size - 1
+    for j in 0 .. strands.size - 1
+      
+      if i != j
+        min_strand = strands[j] unless score
+      end
+      
+    end
+  end
+  
+  
+  
+  return min_strand
 end
