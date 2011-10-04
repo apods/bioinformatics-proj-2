@@ -40,7 +40,7 @@ class ManhattanGraph
     curr_node = Array.[](@distances.size - 1, @distances[0].size - 1)
     next_node = max_neighbor(curr_node)
     
-    until next_node[0] == 0 and next_node[1] == 0
+    until curr_node[0] == 0 and curr_node[1] == 0
       
       if angle_neighbor(curr_node, next_node)
         path[0] = path[0] + @u[next_node[0]].chr.to_s
@@ -57,16 +57,8 @@ class ManhattanGraph
       next_node = max_neighbor(curr_node)
     end
     
-    if angle_neighbor(curr_node, next_node)
-        path[0] = path[0] + @u[next_node[0]].chr.to_s
-        path[1] = path[1] + @v[next_node[1]].chr.to_s
-      elsif up_neighbor(curr_node, next_node)
-        path[0] = path[0] + @u[next_node[0]].chr.to_s
-        path[1] = path[1] + "-"
-      elsif left_neighbor(curr_node, next_node)
-        path[0] = path[0] + "-"
-        path[1] = path[1] + @v[next_node[1]].chr.to_s
-      end
+    path[0] = path[0].reverse
+    path[1] = path[1].reverse
     
     return path
   end

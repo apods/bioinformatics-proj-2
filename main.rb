@@ -13,7 +13,5 @@ distances = DistanceArray.new(dna)
 index_of_center_string = find_center_string(distances)
 alignment = MultipleAlignment.new(dna.strand(index_of_center_string))
 
-mg = ManhattanGraph.new("AXZ", "AXXZ")
-mg.print_graph
-puts "\n"
+mg = ManhattanGraph.new("AXZ", "AYXYZ")
 puts mg.alignment
