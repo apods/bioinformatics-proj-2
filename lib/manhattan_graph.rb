@@ -35,12 +35,51 @@ class ManhattanGraph
     end
   end
   
-  def max_path
+  def alignment
+    path = Array.[]("", "")
+    curr_node = Array.[](@distances.size - 1, @distances[0].size - 1)
+    next_node = max_neighbor(curr_node)
     
+    if angle_neighbor(curr_node, next_node)
+      path[0] = path[0] + @u[next_node[0]].chr.to_s
+      path[1] = path[1] + @v[next_node[1]].chr.to_s
+    #elsif up_neighbor(curr_node, next_node)
+      
+    #elsif left_neighbor(curr_node, next_node)
+      
+    end
+    return path
   end
   
-  def max_neighbor(i, j)
-    
+  def angle_neighbor(curr_node, next_node)
+    return false unless curr_node[0] == next_node[0] + 1 and curr_node[1] == next_node[1] + 1
+    return true
+  end
+  
+  def up_neighbor(curr_node, next_node)
+    return false unless curr_node[0] == next_node[0] + 1 and curr_node[1] == next_node[1]
+    return true
+  end
+  
+  def left_neighbor(curr_node, next_node)
+    return false unless curr_node[0] == next_node[0] and curr_node[1] == next_node[1] + 1
+    return true
+  end
+  
+  def max_neighbor(node)
+    i = node[0]
+    j = node[1]
+    max = max(Array.[](@distances[i-1][j], 
+                       @distances[i][j-1],
+                       @distances[i-1][j-1]))
+                       
+    if max == @distances[i-1][j-1]
+      return Array.[](i-1, j-1)
+    elsif max == @distances[i-1][j]
+      return Array.[](i-1, j)
+    else
+      return Array.[](i, j-1)
+    end 
   end
   
   def max(max_array)
