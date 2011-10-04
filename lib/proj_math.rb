@@ -1,3 +1,13 @@
+def min(min_array)
+    min = min_array[0]
+    for i in 1 .. min_array.size - 1
+      if min_array[i] < min
+        min = min_array[i]
+      end
+    end
+    return min
+  end
+
 def total_score(o_dna)
   score = 0
   num_strands = dna.num_strands
@@ -27,6 +37,30 @@ def score(u, v)
   return score
 end
 
+def score2(u, v)  # edit distance
+  distances = Array.new(u.size + 1) { Array.new(v.size + 1) }
+
+  for i in 0 .. u.size
+    distances[i][0] = i
+  end
+  for j in 0 .. v.size
+    distances[0][j] = j
+  end
+  
+  for i in 1 .. u.size
+    for j in 1 .. v.size
+      
+      if u[i] == v[j]
+        distances[i][j] = distances[i-1][j-1]
+      else
+        distances[i][j] = min(Array.[]( distances[i-1][j] + 1, distances[i][j-1] + 1, distances[i-1][j-1] + 1))
+      end
+    end
+  end
+  
+  return distances[u.size][v.size]
+end
+
 def find_center_string(o_distances)
   distance_sum = 0
   best_sum = Array.[](9999999999999999999999999999, 0)
@@ -44,8 +78,6 @@ def find_center_string(o_distances)
   
   return best_sum[1]
 end
-
-
 
 
 
