@@ -10,9 +10,9 @@ require 'manhattan_graph'
 o_dna = DNA.new("./test_cases/" + (ARGV.first || "test_1.txt"))
 distances = DistanceArray.new(o_dna)
 
-index_of_center_string = find_center_string(distances)
-o_alignment = MultipleAlignment.new(o_dna, index_of_center_string)
+a_center_string = find_center_string(distances)
+o_alignment = MultipleAlignment.new(o_dna, a_center_string[1])
 
+puts "Best Star Cost: " + a_center_string[0].to_s
+puts "Total Cost: " 
 puts o_alignment.align_all
-#mg = ManhattanGraph.new("AXZ", "AYXYZ")
-#puts mg.alignment

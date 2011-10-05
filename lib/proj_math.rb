@@ -76,7 +76,7 @@ def find_center_string(o_distances)
     end
   end
   
-  return best_sum[1]
+  return best_sum
 end
 
 
