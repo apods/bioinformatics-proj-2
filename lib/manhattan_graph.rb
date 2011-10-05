@@ -1,5 +1,7 @@
 class ManhattanGraph
   
+  
+  
   def initialize(u, v)
     @u = u
     @v = v                    #rows                 #cols

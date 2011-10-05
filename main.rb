@@ -14,5 +14,5 @@ a_center_string = find_center_string(distances)
 o_alignment = MultipleAlignment.new(o_dna, a_center_string[1])
 
 puts "Best Star Cost: " + a_center_string[0].to_s
-puts "Total Cost: " 
-puts o_alignment.align_all
+puts "Total Cost: " + o_alignment.distance.to_s
+puts o_alignment.as_align

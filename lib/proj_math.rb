@@ -1,17 +1,42 @@
 def min(min_array)
-    min = min_array[0]
-    for i in 1 .. min_array.size - 1
-      if min_array[i] < min
-        min = min_array[i]
-      end
+  min = min_array[0]
+  for i in 1 .. min_array.size - 1
+    if min_array[i] < min
+      min = min_array[i]
     end
-    return min
   end
+  return min
+end
+
+def max(max_array)
+  max = max_array[0]
+  for i in 1 .. max_array.size - 1
+    if max_array[i] > max
+      max = max_array[i]
+    end
+  end
+  return max
+end
 
 def total_score(o_dna)
   score = 0
   num_strands = dna.num_strands
   strands = dna.all_strands
+  
+  strands.each_index do |i|
+    for j in i + 1 .. num_strands - 1
+      score += score(strands[i], strands[j])
+    end
+  end
+  
+  
+  return score
+end
+
+def total_score2(as_alignment)
+  score = 0
+  num_strands = as_alignment.size
+  strands = as_alignment
   
   strands.each_index do |i|
     for j in i + 1 .. num_strands - 1
