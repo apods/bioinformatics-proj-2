@@ -36,7 +36,7 @@ class MultipleAlignment
     
     i = 0
     until @as_align[0].size == a_pair_alignment[0].size
-      if @as_align[0][i].chr == "-" and a_pair_alignment[0][i] != @as_align[0][i]
+      if !@as_align[0][i].nil? and @as_align[0][i].chr == "-" and a_pair_alignment[0][i] != @as_align[0][i]
         a_pair_alignment[0].insert(i, "-")
         a_pair_alignment[1].insert(i, "-")
       elsif a_pair_alignment[0][i].chr == "-" and a_pair_alignment[0][i] != @as_align[0][i]
